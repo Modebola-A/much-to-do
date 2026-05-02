@@ -1,4 +1,3 @@
-cat > ~/container-assessment/README.md << 'EOF'
 # MuchTodo Container Assessment
 
 ## Overview
