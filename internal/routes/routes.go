@@ -10,8 +10,8 @@ import (
 	"github.com/Innocent9712/much-to-do/Server/MuchToDo/internal/handlers"
 	"github.com/Innocent9712/much-to-do/Server/MuchToDo/internal/middleware"
 
-	_ "github.com/Innocent9712/much-to-do/Server/MuchToDo/docs"
-	"github.com/Innocent9712/much-to-do/Server/MuchToDo/docs"
+	//_ "github.com/Innocent9712/much-to-do/Server/MuchToDo/docs"
+	//"github.com/Innocent9712/much-to-do/Server/MuchToDo/docs"
 )
 
 
@@ -35,11 +35,13 @@ func RegisterRoutes(
 	router.GET("/swagger/*any", func(c *gin.Context) {
         scheme := "http"
         if c.Request.TLS != nil || strings.HasPrefix(c.Request.Header.Get("X-Forwarded-Proto"), "https") {
-            scheme = "https"
+        	scheme = "https"
         }
 
-        docs.SwaggerInfo.Host = c.Request.Host
-        docs.SwaggerInfo.Schemes = []string{scheme}
+		  _ = scheme // suppress unused variable — restore when SwaggerInfo lines are uncommented
+
+        //docs.SwaggerInfo.Host = c.Request.Host
+        //docs.SwaggerInfo.Schemes = []string{scheme}
 
         // Delegate to gin-swagger after updating docs
         ginSwagger.WrapHandler(swaggerFiles.Handler)(c)

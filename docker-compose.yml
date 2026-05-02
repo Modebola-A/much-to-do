@@ -1,0 +1,39 @@
+services:
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - backend
+
+  backend:
+    build: .
+    container_name: muchtodo-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - PORT=8080
+      - MONGO_URI=mongodb://mongodb:27017/much_todo_db
+      - DB_NAME=much_todo_db
+      - JWT_SECRET_KEY=your-super-secret-key-that-is-long-and-random
+      - JWT_EXPIRATION_HOURS=72
+      - LOG_LEVEL=DEBUG
+      - LOG_FORMAT=json
+      - ENABLE_CACHE=false
+    depends_on:
+      - mongodb
+    networks:
+      - backend
+
+volumes:
+  mongo_data:
+
+networks:
+  backend:

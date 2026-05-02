@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+
+# Vagrant
+.vagrant
+
+# Docker
+docker-compose.yaml
+
+# Env files
+# .env   
+
+# Build artifacts
+*.log
+*.out
+*.exe
+*.test
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.vscode
+.idea
+
+# Node (if exists)
+node_modules
+
+# Docs (optional)
+docs/
+
+# Kubernetes (not needed for Docker build)
+kubernetes/
+
+# Scripts (optional)
+scripts/

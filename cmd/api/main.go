@@ -40,7 +40,7 @@ import (
 	"github.com/Innocent9712/much-to-do/Server/MuchToDo/internal/logger"
 
 	// Swagger imports
-	_ "github.com/Innocent9712/much-to-do/Server/MuchToDo/docs" // This is required for swag to find your docs
+	//_ "github.com/Innocent9712/much-to-do/Server/MuchToDo/docs" // This is required for swag to find your docs
 )
 
 const usernameCacheSentinelKey = "username_cache_initialized"
